@@ -1,6 +1,12 @@
 'use client';
 
+import Button, { ButtonType } from '@/components/Buttons';
 import { useState } from 'react';
+import {
+	ArrowLeftIcon,
+	ArrowsPointingOutIcon,
+	ChevronDownIcon,
+} from '@heroicons/react/24/outline';
 
 export default function Demo() {
 	const [showOptions, setShowOptions] = useState(false);
@@ -8,6 +14,13 @@ export default function Demo() {
 	return (
 		<>
 			<div className="flex space-x-2 flex-grow-0">
+				<Button
+					label="Hii"
+					btnType={ButtonType.Outlined}
+					onClick={(e) => alert('You clicked on button')}
+					leadingIcon={<ArrowLeftIcon className="w-5 h-5" />}
+					trailingIcon={<ArrowsPointingOutIcon className="w-5 h-5" />}
+				/>
 				<button className="btn-primary">Normal button</button>
 				<button className="btn-outlined">Outlined button</button>
 				<button className="btn-text">Text button</button>
@@ -44,18 +57,7 @@ export default function Demo() {
 						onClick={() => setShowOptions(!showOptions)}
 					>
 						Options
-						<svg
-							className="-mr-1 h-5 w-5 text-gray-400"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-							aria-hidden="true"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-								clip-rule="evenodd"
-							/>
-						</svg>
+						<ChevronDownIcon className="w-5 h-5" />
 					</button>
 				</div>
 				{showOptions ? (
