@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components {
+    styles for specific component...
+} */
+
+@layer components {
+    .btn-primary{ 
+        @apply m-1 transition-colors ease-linear rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-gray-400 shadow-sm hover:bg-primary-500 active:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600
+    }
+    .btn-outlined{ 
+        @apply m-1 transition-colors ease-linear rounded-md bg-white px-3 py-2 text-sm font-semibold text-primary-600 shadow-gray-400 shadow-sm hover:text-primary-500 active:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 
+    }
+    .btn-text {
+        @apply m-1 transition-colors ease-linear rounded-md bg-white px-3 py-2 text-sm font-semibold text-primary-600 shadow-gray-400  hover:bg-primary-50 active:bg-primary-100 active:text-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 
+    }
+    .input-field{
+        @apply block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-0 focus:ring-inset focus:ring-primary-400 sm:text-sm sm:leading-6 
+    }
+    .input-label{
+        @apply block text-sm font-medium leading-6 text-gray-900
+    }
+    .link{
+        @apply m-1 font-medium text-primary-800 underline dark:text-primary-500 hover:no-underline
+    }
+    .dropdown-button {
+        @apply inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50
+    }
+    .dropdown-body {
+        @apply absolute z-[100] left-0 mt-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100
+    }
+    .dropdown-option {
+        @apply text-gray-700 block px-4 py-2 text-sm
+    }
+    .badge {
+        @apply inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10
+    }
+    .card {
+        @apply border shadow rounded-md p-4 max-w-sm w-full mx-auto
+    }
+}
