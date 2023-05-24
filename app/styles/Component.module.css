@@ -8,7 +8,7 @@
 
 @layer components {
     .btn-primary{ 
-        @apply m-1 transition-colors ease-linear rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-gray-400 shadow-sm hover:bg-primary-500 active:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600
+        @apply m-1 transition-colors ease-linear rounded-md bg-primary-600 px-3 py-2 text-sm font-semibold text-white shadow-gray-400 shadow-sm hover:bg-primary-500 active:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 !important
     }
     .btn-outlined{ 
         @apply m-1 transition-colors ease-linear rounded-md bg-white px-3 py-2 text-sm font-semibold text-primary-600 shadow-gray-400 shadow-sm hover:text-primary-500 active:drop-shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 
