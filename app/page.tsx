@@ -9,6 +9,7 @@ import heroimg from '@/media/hero.png';
 import Button from '@/components/Buttons';
 import { ButtonType } from '@/components/schemas/Button';
 import CollapseNavbar, { NavItem } from '@/app/HiddenNavigation';
+import Link from 'next/link';
 
 export default function Home() {
 	return (
@@ -21,7 +22,7 @@ export default function Home() {
 						href="http://localhost:3000"
 						className="flex items-end space-x-2"
 					>
-						<BuildingLibraryIcon className="w-10 h-10" />
+						<BuildingLibraryIcon className="w-10 h-10 dark:text-white" />
 						<span className="text-2xl font-semibold whitespace-nowrap dark:text-white">
 							OpenLibrary
 						</span>
@@ -36,14 +37,18 @@ export default function Home() {
 							</ul>
 						</div>
 						<div className="flex space-x-2 justify-center items-center">
-							<Button
-								btnType={ButtonType.Outlined}
-								label={'Login'}
-							/>
-							<Button
-								btnType={ButtonType.Normal}
-								label={'Sign up'}
-							/>
+							<Link href="/login" passHref>
+								<Button
+									btnType={ButtonType.Outlined}
+									label={'Login'}
+								/>
+							</Link>
+							<Link href="/signup" passHref>
+								<Button
+									btnType={ButtonType.Normal}
+									label={'Sign up'}
+								/>
+							</Link>
 						</div>
 					</div>
 					{/* Menu button */}
@@ -66,12 +71,14 @@ export default function Home() {
 							Create, Share, Search, Learn.
 						</div>
 						<div className="my-6 md:w-[60%] ">
-							<Button
-								label={'Get Started'}
-								trailingIcon={
-									<ArrowRightIcon className="w-5 h-5" />
-								}
-							/>
+							<Link href="/login" passHref>
+								<Button
+									label={'Get Started'}
+									trailingIcon={
+										<ArrowRightIcon className="w-5 h-5" />
+									}
+								/>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -112,7 +119,7 @@ export default function Home() {
 
 				<div className="h-10" />
 			</main>
-			<footer className="flex flex-col md:flex-row w-full border-t border-gray-200 justify-around items-center text-gray-500 py-4 bg-gray-100">
+			<footer className="flex flex-col md:flex-row w-full border-t border-gray-200 justify-around items-center text-gray-500 py-4 bg-gray-100 dark:bg-gray-950 dark:border-gray-700 dark:text-gray-400">
 				<div className="flex space-x-2 items-cemter">
 					<BuildingLibraryIcon className="w-5 h-5" />
 					<span className="text-xl font-semibold whitespace-nowrap">

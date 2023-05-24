@@ -15,7 +15,7 @@ export default function CollapseNavbar() {
 				onClick={() => setShowNavbar(!showNavbar)}
 			>
 				<span className="sr-only">Open main menu</span>
-				<Bars3Icon className="w-5 h-5" />
+				<Bars3Icon className="w-5 h-5 dark:text-white" />
 			</button>
 			<ul
 				className={`${
