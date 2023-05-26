@@ -1,6 +1,10 @@
-# OpenLibrary
+<div style="display:flex;justify-content:center;">
+<img src="./media/logo.png" width=200 height=200 alt="Osion logo" />
+</div>
 
-Open Library is a platform for easily creating notes and making them available for everyone. Anyone can view anyone's notes and can get knowledge.
+# Osion
+
+Osion is a platform for easily creating notes and making them available for everyone. Anyone can view anyone's notes and can get knowledge.
 <br><br><br>
 
 ## Technologies

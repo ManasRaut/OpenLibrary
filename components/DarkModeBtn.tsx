@@ -18,7 +18,7 @@ const DarkModeBtn = () => {
 	const currentTheme = theme === 'system' ? systemTheme : theme;
 
 	return (
-		<li className="`w-full py-2 pl-3 pr-4 rounded md:bg-transparent flex items-end hover:underline md:p-0 dark:text-white">
+		<div className="py-2 pl-3 pr-4 rounded md:bg-transparent flex items-end hover:underline md:p-0 dark:text-white">
 			{currentTheme === 'dark' ? (
 				<SunIcon
 					className="h-5 w-5 cursor-pointer text-white"
@@ -34,7 +34,7 @@ const DarkModeBtn = () => {
 					}}
 				/>
 			)}
-		</li>
+		</div>
 	);
 };
 export default DarkModeBtn;

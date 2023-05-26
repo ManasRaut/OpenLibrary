@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import {
 	ArrowRightIcon,
-	BuildingLibraryIcon,
 	MagnifyingGlassIcon,
 	PencilIcon,
 } from '@heroicons/react/24/outline';
@@ -10,6 +9,7 @@ import Button from '@/components/Buttons';
 import { ButtonType } from '@/components/schemas/Button';
 import CollapseNavbar, { NavItem } from '@/app/HiddenNavigation';
 import Link from 'next/link';
+import OsionLogo from '@/media/logo.png';
 
 export default function LandingPage() {
 	const navMenu = [
@@ -29,15 +29,19 @@ export default function LandingPage() {
 			<nav className="bg-white border-gray-200 dark:bg-gray-900">
 				<div className="max-w-screen-xl flex flex-wrap items-end justify-between mx-auto p-4">
 					{/* Logo and website name */}
-					<a
+					<Link
 						href="http://localhost:3000"
-						className="flex items-end space-x-2"
+						className="flex items-center space-x-2"
 					>
-						<BuildingLibraryIcon className="w-10 h-10 dark:text-white" />
+						<Image
+							src={OsionLogo}
+							alt="Osion logo"
+							className="w-10 h-10"
+						/>
 						<span className="text-2xl font-semibold whitespace-nowrap dark:text-white">
-							OpenLibrary
+							Osion
 						</span>
-					</a>
+					</Link>
 
 					{/* nav items */}
 					<div className="hidden w-full md:flex md:w-auto items-center justify-center space-x-8">
@@ -140,10 +144,14 @@ export default function LandingPage() {
 				<div className="h-10" />
 			</main>
 			<footer className="flex flex-col md:flex-row w-full border-t border-gray-200 justify-around items-center text-gray-500 py-4 bg-gray-100 dark:bg-gray-950 dark:border-gray-700 dark:text-gray-400">
-				<div className="flex space-x-2 items-cemter">
-					<BuildingLibraryIcon className="w-5 h-5" />
+				<div className="flex space-x-2 items-center">
+					<Image
+						src={OsionLogo}
+						alt="Osion logo"
+						className="w-6 h-6 grayscale"
+					/>
 					<span className="text-xl font-semibold whitespace-nowrap">
-						OpenLibrary
+						Osion
 					</span>
 				</div>
 				Keep learning and Keep sharing.

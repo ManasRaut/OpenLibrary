@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-	title: 'OpenLibrary - Learn and share',
+	title: 'Osion - Learn and share',
 	description:
 		'Document your knowledge easily and make it available to everyone.',
 };

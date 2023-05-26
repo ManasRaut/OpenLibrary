@@ -1,6 +1,7 @@
 import Button from '@/components/Buttons';
-import { BuildingLibraryIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import OsionLogo from '@/media/logo.png';
+import Image from 'next/image';
 
 export default function SignUpPage() {
 	return (
@@ -11,9 +12,13 @@ export default function SignUpPage() {
 				<div className="sm:mx-auto sm:w-full sm:max-w-sm">
 					<Link href={'/'}>
 						<div className="flex flex-col space-y-2 items-center">
-							<BuildingLibraryIcon className="mx-auto h-10 w-auto dark:text-white" />
+							<Image
+								src={OsionLogo}
+								alt="Osion logo"
+								className="w-16 h-16"
+							/>
 							<div className="text-2xl font-semibold whitespace-nowrap dark:text-white">
-								OpenLibrary
+								Osion
 							</div>
 						</div>
 						<h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900 dark:text-white">
