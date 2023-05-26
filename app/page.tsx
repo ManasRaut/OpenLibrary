@@ -11,7 +11,18 @@ import { ButtonType } from '@/components/schemas/Button';
 import CollapseNavbar, { NavItem } from '@/app/HiddenNavigation';
 import Link from 'next/link';
 
-export default function Home() {
+export default function LandingPage() {
+	const navMenu = [
+		{
+			label: 'Search',
+			link: '/search',
+		},
+		{
+			label: 'About',
+			link: '/about',
+		},
+	];
+
 	return (
 		<>
 			{/* Simple navbar, only to be used in landing page */}
@@ -32,8 +43,13 @@ export default function Home() {
 					<div className="hidden w-full md:flex md:w-auto items-center justify-center space-x-8">
 						<div>
 							<ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-								<NavItem label="Search" link="#" />
-								<NavItem label="About" link="#" />
+								{navMenu.map((l) => (
+									<NavItem
+										key={l.label}
+										label={l.label}
+										link={l.link}
+									/>
+								))}
 							</ul>
 						</div>
 						<div className="flex space-x-2 justify-center items-center">
@@ -52,7 +68,7 @@ export default function Home() {
 						</div>
 					</div>
 					{/* Menu button */}
-					<CollapseNavbar />
+					<CollapseNavbar links={navMenu} />
 				</div>
 			</nav>
 
@@ -92,11 +108,15 @@ export default function Home() {
 						easily using powerful document editing features.
 					</div>
 					<div className="py-2">
-						<Button
-							btnType={ButtonType.Outlined}
-							label={'Start writing'}
-							trailingIcon={<PencilIcon className="w-5 h-5" />}
-						/>
+						<Link href="/home">
+							<Button
+								btnType={ButtonType.Outlined}
+								label={'Start writing'}
+								trailingIcon={
+									<PencilIcon className="w-5 h-5" />
+								}
+							/>
+						</Link>
 					</div>
 				</div>
 

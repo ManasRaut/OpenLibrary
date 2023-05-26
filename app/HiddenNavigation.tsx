@@ -4,7 +4,11 @@ import { Bars3Icon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CollapseNavbar() {
+export default function CollapseNavbar({
+	links,
+}: {
+	links: Array<{ label: string; link: string }>;
+}) {
 	const [showNavbar, setShowNavbar] = useState(false);
 
 	return (
@@ -22,8 +26,9 @@ export default function CollapseNavbar() {
 					showNavbar ? 'w-full' : 'hidden'
 				} md:hidden flex flex-col space-y-2 justify-center items-center py-2 pt-4 border-b`}
 			>
-				<NavItem label="Search" link="#" />
-				<NavItem label="About" link="#" />
+				{links.map((l) => (
+					<NavItem key={l.label} label={l.label} link={l.link} />
+				))}
 			</ul>
 		</>
 	);
