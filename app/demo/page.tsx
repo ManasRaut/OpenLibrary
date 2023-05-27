@@ -5,12 +5,35 @@ import { useState } from 'react';
 import {
 	ArrowLeftIcon,
 	ArrowsPointingOutIcon,
+	ChevronDoubleDownIcon,
 	ChevronDownIcon,
+	ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
+import InputField from '@/components/InputField';
+import { Select } from '@/components/SelectField';
+import { SelectOption } from '../../components/schemas/types';
+import { CheckBox } from '@/components/CheckBox';
+import { RadioButton } from '@/components/RadioButton';
+const options: SelectOption[] = [
+	{
+		label: "Account Settings",
+		value: "Account Settings"
+	},
+	{
+		label: "Support",
+		value: "Support"
+	},
+	{
+		label: "License",
+		value: "License"
+	},
+
+];
+
 
 export default function Demo() {
 	const [showOptions, setShowOptions] = useState(false);
-
+	const [selectedItem, setSelectedItem] = useState<SelectOption | null>(null);
 	return (
 		<>
 			<div className="flex space-x-2 flex-grow-0">
@@ -21,24 +44,25 @@ export default function Demo() {
 					leadingIcon={<ArrowLeftIcon className="w-5 h-5" />}
 					trailingIcon={<ArrowsPointingOutIcon className="w-5 h-5" />}
 				/>
-				<button className="btn-primary">Normal button</button>
-				<button className="btn-outlined">Outlined button</button>
-				<button className="btn-text">Text button</button>
+				<Button
+					label="Normal Button"
+					btnType={ButtonType.Normal}
+				/>
+				<Button
+					label="Outlined Button"
+					btnType={ButtonType.Outlined}
+				/>
+				<Button
+					label="Text Button"
+					btnType={ButtonType.TextButton}
+				/>
+
 			</div>
-			<div className="flex space-x-2 flex-grow-0">
-				<div>
-					<label htmlFor="last-name" className="input-label">
-						Last name
-					</label>
-					<div className="mt-2">
-						<input
-							type="text"
-							name="last-name"
-							id="last-name"
-							className="input-field"
-						/>
-					</div>
-				</div>
+			<div className="flex space-x-2 flex-grow-0 m-2">
+				<InputField type='text' />
+			</div>
+			<div className="flex space-x-2 flex-grow-0 m-2">
+				<InputField label='Last Name' type='text' />
 			</div>
 			<div className="flex space-x-2 flex-grow-0">
 				<a href="#" className="link">
@@ -50,7 +74,7 @@ export default function Demo() {
 				<div>
 					<button
 						type="button"
-						className="dropdown-button"
+						className="select-button"
 						id="menu-button"
 						aria-expanded="true"
 						aria-haspopup="true"
@@ -62,7 +86,7 @@ export default function Demo() {
 				</div>
 				{showOptions ? (
 					<div
-						className="dropdown-body"
+						className="select-body"
 						role="menu"
 						aria-orientation="vertical"
 						aria-labelledby="menu-button"
@@ -70,7 +94,7 @@ export default function Demo() {
 						<div className="py-1" role="none">
 							<a
 								href="#"
-								className="dropdown-option"
+								className="select-option"
 								role="menuitem"
 								id="menu-item-0"
 							>
@@ -78,7 +102,7 @@ export default function Demo() {
 							</a>
 							<a
 								href="#"
-								className="dropdown-option"
+								className="select-option"
 								role="menuitem"
 								id="menu-item-1"
 							>
@@ -86,7 +110,7 @@ export default function Demo() {
 							</a>
 							<a
 								href="#"
-								className="dropdown-option"
+								className="select-option"
 								role="menuitem"
 								id="menu-item-2"
 							>
@@ -95,6 +119,15 @@ export default function Demo() {
 						</div>
 					</div>
 				) : null}
+			</div>
+			<div>
+				<Select
+					placeholder='Options'
+					selected={selectedItem}
+					options={options}
+					onChange={(selection: SelectOption) => setSelectedItem(selection)}
+				/>
+				<p>Hello, my selection is {selectedItem?.label}</p>
 			</div>
 			<div className="card">
 				<div className="animate-pulse flex space-x-4">
@@ -117,7 +150,10 @@ export default function Demo() {
 				<span className="badge text-warning bg-yellow-50">Warning</span>
 				<span className="badge text-success bg-green-50">Success</span>
 			</div>
-
+			<CheckBox label={"Check it"}
+			// description={"nothing to describe"}
+			/>
+			<RadioButton label={"hello"} />
 			<div
 				className="relative z-10 hidden"
 				aria-labelledby="modal-title"
@@ -132,20 +168,7 @@ export default function Demo() {
 							<div className=" px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
 								<div className="sm:flex sm:items-start">
 									<div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-										<svg
-											className="h-6 w-6 text-red-600"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											aria-hidden="true"
-										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-											/>
-										</svg>
+										<ExclamationTriangleIcon className='w-6 h-6 text-error' />
 									</div>
 									<div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
 										<h3
@@ -167,7 +190,7 @@ export default function Demo() {
 								</div>
 							</div>
 							<div className=" px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-								<button className="btn-primary bg-error">
+								<button className="btn-primary ">
 									Deactivate
 								</button>
 								<button className="btn-outlined text-gray-500">
@@ -178,6 +201,7 @@ export default function Demo() {
 					</div>
 				</div>
 			</div>
+
 		</>
 	);
 }

@@ -15,17 +15,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button(props: ButtonProps) {
 	const {
+		className = '',
 		label,
 		btnType = ButtonType.Normal,
 		leadingIcon,
 		trailingIcon,
-		onClick = () => {},
+		onClick = () => { },
 	} = props;
 
 	return (
 		<button
-			type="button"
-			className={`${btnType} flex items-center justify-center space-x-2`}
+			className={`${btnType} ${className} flex items-center justify-center space-x-2`}
 			onClick={onClick}
 		>
 			<div>{leadingIcon}</div>
