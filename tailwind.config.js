@@ -7,6 +7,25 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			animation: {
+				'wave-animation': 'wave 1s infinite',
+			},
+			keyframes: {
+				wave: {
+					'0%': {
+						transform: 'translateY(0)',
+					},
+					'40%': {
+						transform: 'translateY(0)',
+					},
+					'100%': {
+						transform: 'translateY(0)',
+					},
+					'20%': {
+						transform: 'translateY(-20px)',
+					},
+				},
+			},
 			colors: {
 				primary: {
 					50: '#eff6ff',
@@ -32,6 +51,7 @@ module.exports = {
 			},
 		},
 	},
+	darkMode: 'class',
 	plugins: [],
 };
 

@@ -1,6 +1,7 @@
 'use client';
 
-import Button, { ButtonType } from '@/components/Buttons';
+import Button from '@/components/Buttons';
+import { ButtonType } from '@/components/schemas/Button';
 import { useState } from 'react';
 import {
 	ArrowLeftIcon,
@@ -39,7 +40,7 @@ export default function Demo() {
 			<div className="flex space-x-2 flex-grow-0">
 				<Button
 					label="Hii"
-					btnType={ButtonType.Outlined}
+					btnType={ButtonType.Normal}
 					onClick={(e) => alert('You clicked on button')}
 					leadingIcon={<ArrowLeftIcon className="w-5 h-5" />}
 					trailingIcon={<ArrowsPointingOutIcon className="w-5 h-5" />}

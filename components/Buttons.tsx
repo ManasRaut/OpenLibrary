@@ -1,13 +1,10 @@
-import { ButtonHTMLAttributes } from 'react';
+'use client';
 
-export enum ButtonType {
-	Normal = 'btn-primary',
-	Outlined = 'btn-outlined',
-	TextButton = 'btn-text',
-}
+import { ButtonHTMLAttributes } from 'react';
+import { ButtonType } from './schemas/Button';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	label: String;
+	label: string;
 	btnType?: ButtonType;
 	leadingIcon?: React.ReactNode;
 	trailingIcon?: React.ReactNode;
@@ -21,12 +18,15 @@ export default function Button(props: ButtonProps) {
 		leadingIcon,
 		trailingIcon,
 		onClick = () => { },
+		...rest
 	} = props;
 
 	return (
 		<button
-			className={`${btnType} ${className} flex items-center justify-center space-x-2`}
+			type="button"
+			className={`${btnType} flex items-center justify-center space-x-2 ${className}`}
 			onClick={onClick}
+			{...rest}
 		>
 			<div>{leadingIcon}</div>
 			<div>{label}</div>
