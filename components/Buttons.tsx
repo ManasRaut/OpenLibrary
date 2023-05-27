@@ -12,12 +12,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export default function Button(props: ButtonProps) {
 	const {
+		className = '',
 		label,
 		btnType = ButtonType.Normal,
 		leadingIcon,
 		trailingIcon,
-		onClick = () => {},
-		className,
+		onClick = () => { },
 		...rest
 	} = props;
 
